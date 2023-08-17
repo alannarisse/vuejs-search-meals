@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-size:20px;
+  font-family: 'Libre Baskerville', serif;
+
+/* font-family: 'Kanit', sans-serif; */
+}
+h1, h2, h3, header {
+  font-family: 'Fjalla One', sans-serif;
+
+}

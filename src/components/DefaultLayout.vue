@@ -1,7 +1,7 @@
 <template>
   <navbar />
   <main>
-    <div class="max-w-[1200px] mx-auto">
+    <div class="w-{80%} mx-auto">
       <router-view />
     </div>
   </main>
