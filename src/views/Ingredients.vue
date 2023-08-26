@@ -1,12 +1,12 @@
 <template>
   <div class="p-8 pb-0">
-    <h1 class="text-4xl font-bold mb-4 text-orange-500">Ingredients</h1>
+    <h1 class="text-4xl font-bold mb-4 text-fuchsia-800">Ingredients</h1>
   </div>
   <div class="px-8">
     <input
       type="text"
       v-model="keyword"
-      class="rounded border-2 bg-white border-gray-200 focus:ring-orange-500 focus:border-orange-500 mb-3 w-full"
+      class="rounded border-2 bg-white border-gray-200 focus:ring-fuchsia-800 focus:border-fuchsia-800 mb-3 w-full"
       placeholder="Search for Ingredients"
     />
     <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -14,9 +14,9 @@
         @click.prevent="openIngredient(ingredient)"
         v-for="ingredient of computedIngredients"
         :key="ingredient.idIngredient"
-        class="block bg-white rounded p-3 mb-3 shadow"
+        class="block bg-white rounded p-3 mb-2 shadow"
       >
-        <h3 class="text-2xl font-bold mb-2">{{ ingredient.strIngredient }}</h3>
+        <h3 class="text-lg mb-1">{{ ingredient.strIngredient }}</h3>
       </a>
     </div>
   </div>
