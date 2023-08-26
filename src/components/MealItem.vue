@@ -6,7 +6,7 @@
       <img
         :src="meal.strMealThumb"
         :alt="meal.strMeal"
-        class="rounded-t-xl w-full h-48 object-cover"
+        class="w-full h-48 object-cover"
       />
     </router-link>
     <div class="p-3">
