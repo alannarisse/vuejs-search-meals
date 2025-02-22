@@ -44,7 +44,7 @@
 body {
   font-size:18px;
   font-family: "Hind Madurai", serif;
-  color: #666;
+  color: #006DA0;
 
  /* font-family: 'Kanit', sans-serif; */
 
@@ -68,4 +68,11 @@ background-repeat: no-repeat;
 background-position:top right;
 background-size: 100%;
 min-height:100vh;
+}
+.logo {
+  max-width:200px;
+}
+
+@media screen and (max-width:600px) {
+  main {width:95%;}
 }
