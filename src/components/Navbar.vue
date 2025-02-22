@@ -4,7 +4,7 @@
       :to="{ name: 'home' }"
       class="logotype text-4xl my-4 inline-flex items-center h-full px-5 text-sky-900 font-bold"
     >
-      <img :src="'/public/logo.svg'"
+      <img :src="'./assets/logo.svg'"
       :class="'logo'"
       :alt="'Scrumptious'"
       />
