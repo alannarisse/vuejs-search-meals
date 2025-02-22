@@ -5,4 +5,4 @@ YouTube Tutorial by [The Codaholic](https://youtu.be/cfiN8lCA3RM)
 
 [Live link on netlify](https://silly-raindrop-967589.netlify.app/)
 
-![image](public/scrumptious-screen.png.png)
+![image](public/scrumptious-screen.png)
