@@ -2,15 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-size:20px;
-  font-family: 'Libre Baskerville', serif;
+/* 
 
-/* font-family: 'Kanit', sans-serif; */
+.montserrat-<uniquifier> {
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+  .hind-madurai-light {
+  font-family: "Hind Madurai", serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.hind-madurai-regular {
+  font-family: "Hind Madurai", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.hind-madurai-medium {
+  font-family: "Hind Madurai", serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.hind-madurai-semibold {
+  font-family: "Hind Madurai", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.hind-madurai-bold {
+  font-family: "Hind Madurai", serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+   */
+body {
+  font-size:18px;
+  font-family: "Hind Madurai", serif;
+  color: #666;
+
+ /* font-family: 'Kanit', sans-serif; */
+
+}
+main {
+  width:80%;
+  margin:auto;
 }
 .logotype {
-  font-family: 'Londrina Solid'
+  font-family: 'Montserrat', serif;
+  font-style: italic;
+  color: #00AEFF;
+  font-size:60px;
 }
 h1, h2, h3, header {
-  font-family: 'Londrina Solid', sans-serif;
+  font-family: "Montserrat", serif;
+}
+body div.h-full {
+  background-image: url('assets/swoosh.svg');
+background-repeat: no-repeat;
+background-position:top right;
+background-size: 100%;
+min-height:100vh;
 }
