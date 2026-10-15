@@ -3,12 +3,23 @@
     <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
   </div>
   <div v-if="!meals.length" class="flex justify-center text-gray-600 p-8">
-    Click a letter above to see meals that start with that letter. If none appear, try another letter!
+    {{ emptyMessage }}
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue';
+import { useRoute } from 'vue-router';
 import MealItem from './MealItem.vue';
+
+const route = useRoute();
+const emptyMessages = {
+  byName: 'Type in a name and click Enter/Return to see related meals. If none appear, try another name or simplify your search terms.',
+  byLetter: 'Click a letter above to see meals that start with that letter. If none appear, try another letter!',
+  byIngredient: 'No meals found for this ingredient. Try another ingredient.',
+  favorites: 'No favorites yet. Click the heart on a meal to save it here.',
+};
+const emptyMessage = computed(() => emptyMessages[route.name] || 'No meals to display yet. Try searching for a meal.');
 
 const { meals } = defineProps({
   meals: {

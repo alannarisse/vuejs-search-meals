@@ -7,12 +7,18 @@ import MealsByLetter from '../views/MealsByLetter.vue'
 import MealsByName from '../views/MealsByName.vue'
 import MealDetails from '../views/MealDetails.vue'
 import Ingredients from '../views/Ingredients.vue'
+import Favorites from '../views/Favorites.vue'
 
 const routes = [
   {
     path: '/',
     component: DefaultLayout,
     children: [
+      {
+        path: '/favorites',
+        name: 'favorites',
+        component: Favorites,
+      },
       {
         path: "/",
         name: "home",

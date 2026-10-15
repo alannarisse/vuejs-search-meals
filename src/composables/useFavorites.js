@@ -1,4 +1,4 @@
-import { computed, ref } from 'vue';
+import { computed, readonly, ref } from 'vue';
 
 const storageKey = 'scrumptious:favorite-meals';
 
@@ -12,6 +12,10 @@ function loadFavorites() {
 }
 
 const favoriteIds = ref(loadFavorites());
+
+export function useFavoriteIds() {
+  return readonly(favoriteIds);
+}
 
 export function useFavorites(mealId) {
   const isFavorite = computed(() => favoriteIds.value.includes(String(mealId())));

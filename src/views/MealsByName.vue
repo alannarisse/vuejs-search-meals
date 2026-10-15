@@ -25,8 +25,27 @@ import Meals from '../components/Meals.vue'
 const route = useRoute();
 const keyword = ref("");
 const meals = computed(() => store.state.searchedMeals);
+const lastSearchKey = 'scrumptious:last-search';
+
+function loadLastSearch() {
+  try {
+    return localStorage.getItem(lastSearchKey) || '';
+  } catch {
+    return '';
+  }
+}
 
 function searchMeals() {
+  keyword.value = keyword.value.trim();
+  try {
+    if (keyword.value) {
+      localStorage.setItem(lastSearchKey, keyword.value);
+    } else {
+      localStorage.removeItem(lastSearchKey);
+    }
+  } catch {
+    // Searching still works if browser storage is unavailable.
+  }
   if (keyword.value) {
     store.dispatch("searchMeals", keyword.value);
   } else {
@@ -35,9 +54,7 @@ function searchMeals() {
 }
 
 onMounted(() => {
-  keyword.value = route.params.name
-  if (keyword.value) {
-    searchMeals()
-  }
+  keyword.value = route.params.name || loadLastSearch();
+  searchMeals();
 })
 </script>

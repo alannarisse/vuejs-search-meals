@@ -9,22 +9,28 @@
       :alt="'Scrumptious'"
       />
     </router-link>
-    <div class="flex items-center gap-2 pr-8">
+    <div class="flex flex-wrap items-center gap-2 pr-6">
+      <router-link
+        :to="{ name: 'favorites' }"
+        class="inline-flex items-center px-2 h-8 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400 hover:text-sky-900"
+      >
+        Favorites
+      </router-link>
       <router-link
         :to="{ name: 'byName' }"
-        class="inline-flex items-center px-2 h-12 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
+        class="inline-flex items-center px-2 h-8 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
       >
         Search Meals
       </router-link>
       <router-link
         :to="{ name: 'byLetter' }"
-        class="inline-flex items-center px-2 h-12 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
+        class="inline-flex items-center px-2 h-8 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
       >
         Meals By Letter
       </router-link>
       <router-link
         :to="{ name: 'ingredients' }"
-        class="inline-flex items-center px-2 h-12 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
+        class="inline-flex items-center px-2 h-8 font-medium transition-colors border-b-4 border-transparent hover:border-b-4 hover:border-yellow-400  hover:text-sky-900"
       >
         Meals By Ingredients
       </router-link>

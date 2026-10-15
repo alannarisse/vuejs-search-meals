@@ -31,7 +31,7 @@
     </div>
 
     <div class="my-3 whitespace-pre-line">
-      {{ meal.strInstructions }}
+      {{ formattedInstructions }}
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2">
@@ -79,6 +79,9 @@ import YouTubeButton from '../components/YouTubeButton.vue';
 
 const route = useRoute();
 const meal = ref({})
+const formattedInstructions = computed(() =>
+  (meal.value.strInstructions || '').replace(/^([\t ]*▢)[\t ]*(?:\r\n|\n|\r)[\t ]*(?=\S)/gm, '$1 ')
+)
 const ingredients = computed(() =>
   Array.from({ length: 20 }, (_, index) => {
     const name = meal.value[`strIngredient${index + 1}`]?.trim();
