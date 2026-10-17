@@ -1,8 +1,16 @@
 <template>
   <div class="max-w-full mx-2 p-8 grid grid-cols-1 min-[1280px]:grid-cols-2 gap-8 items-start">
     <div class="min-w-0">
-      <h1 class="text-4xl font-bold mb-5 text-yellow-500">{{ meal.strMeal }}</h1>
-      <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-full h-auto">
+      <h1 class="max-[54rem]: text-xl min-[54rem]:text-4xl font-bold mb-5 text-yellow-500">{{ meal.strMeal }}</h1>
+
+      <picture>
+        <source
+          v-if="meal.strMealThumb"
+          media="(max-width: 40rem)"
+          :srcset="`${meal.strMealThumb}/medium`"
+        >
+        <img :src="meal.strMealThumb" :alt="meal.strMeal" class="max-w-full h-auto">
+      </picture>
       <ul class="flex flex-wrap gap-3 mt-4" aria-label="Recipe ingredients">
         <li v-for="ingredient in ingredients" :key="ingredient.id" class="w-20 text-center">
           <img
@@ -16,6 +24,7 @@
           <span class="block text-sm mt-1 break-words">{{ ingredient.name }}</span>
         </li>
       </ul>
+      <RecipeNotes :meal-id="route.params.id" />
     </div>
     <div class="min-w-0">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 text-lg py-2 mt-8">
@@ -23,15 +32,15 @@
         <strong class="font-bold">Category:</strong> {{ meal.strCategory }}
       </div>
       <div>
-        <strong class="font-bold">Area:</strong> {{ meal.strArea }}
+        <strong class="font-bold">Region:</strong> {{ meal.strArea }}
       </div>
       <div>
         <strong class="font-bold">Tags:</strong> {{ meal.strTags }}
       </div>
     </div>
 
-    <div class="my-3 whitespace-pre-line">
-      {{ formattedInstructions }}
+    <div class="my-3 space-y-3">
+      <p v-for="(line, index) in formattedInstructions" :key="index">{{ line }}</p>
     </div>
 
     <div class="grid grid-cols-1 sm:grid-cols-2">
@@ -57,7 +66,7 @@
       </div>
       
     </div>
-<div class="mt-4">
+<div class="mt-4 pt-4">
         <YouTubeButton :href="meal.strYoutube" />
         <a
           :href="meal.strSource"
@@ -76,11 +85,16 @@ import { computed, onMounted, ref } from 'vue'
 import { useRoute } from 'vue-router';
 import axiosClient from '../axiosClient';
 import YouTubeButton from '../components/YouTubeButton.vue';
+import RecipeNotes from '../components/RecipeNotes.vue';
 
 const route = useRoute();
 const meal = ref({})
 const formattedInstructions = computed(() =>
-  (meal.value.strInstructions || '').replace(/^([\t ]*▢)[\t ]*(?:\r\n|\n|\r)[\t ]*(?=\S)/gm, '$1 ')
+  (meal.value.strInstructions || '')
+    .replace(/^([\t ]*▢)[\t ]*(?:\r\n|\n|\r)[\t ]*(?=\S)/gm, '$1 ')
+    .split(/\r\n|\n|\r/)
+    .map(line => line.trim())
+    .filter(Boolean)
 )
 const ingredients = computed(() =>
   Array.from({ length: 20 }, (_, index) => {

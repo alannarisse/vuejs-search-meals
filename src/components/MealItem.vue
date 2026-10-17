@@ -5,7 +5,7 @@
     <div class="relative">
     <router-link :to="{ name: 'mealDetails', params: { id: meal.idMeal } }">
       <img
-        :src="meal.strMealThumb"
+        :src="meal.strMealThumb ? `${meal.strMealThumb}/small` : undefined"
         :alt="meal.strMeal"
         class="w-full h-48 object-cover rounded-tr-3xl"
       />

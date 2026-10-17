@@ -58,7 +58,7 @@ main {
   font-family: 'Montserrat', serif;
   font-style: italic;
   color: #00AEFF;
-  font-size: 60px;
+  font-size: 2.75rem;
 }
 
 h1,
@@ -80,7 +80,7 @@ body div.h-full {
   max-width: 200px;
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:54rem) {
   main {
     width: 95%;
   }

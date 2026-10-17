@@ -1,6 +1,6 @@
 <template>
   <div class="p-8 mb-12 pb-0 text-yellow-500">
-    <h1 class="text-4xl font-bold mb-4">How About One Of These Meals?</h1>
+    <h1 class="max-[54rem]:text-xl min-[54rem]:text-4xl font-bold mb-4">How About One Of These Meals?</h1>
     <p class="text-sky-900">We've generated a list of meals we think you'll love. Not quite right? Search for your favorite or view meals in alphabetical order.</p>
   </div>
   <Meals :meals="meals" />

@@ -4,7 +4,8 @@
       :to="{ name: 'home' }"
       class="logotype text-4xl my-4 inline-flex items-center h-full px-5 text-sky-900 font-bold"
     >
-      <img :src="'./assets/logo.svg'"
+      <img 
+      :src="`${assetBase}assets/logo.svg`"
       :class="'logo'"
       :alt="'Scrumptious'"
       />
@@ -37,3 +38,7 @@
     </div>
   </header>
 </template>
+<script setup>
+const assetBase = import.meta.env.BASE_URL;
+
+</script>
